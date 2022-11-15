@@ -12,6 +12,6 @@ h2 {
 }
 
 .playerDiv {
-    margin: 300px;
+    margin: 0 auto; 
     text-align: center;
 }
