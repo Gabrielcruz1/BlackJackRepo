@@ -27,11 +27,48 @@ h2 {
     color: white;
 }
 
-.playerDiv {
+.buttonDiv {
     margin: 0 auto; 
     text-align: center;
 }
 
-.playerText {
-   display: grid
+.playerDiv {
+    display: grid;
+    grid-template-rows: 325px ;
 }
+
+.inputClass {
+    margin: 0 auto;
+    padding: 5px;
+    font-style: italic;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
