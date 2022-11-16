@@ -7,11 +7,25 @@ h1 {
     text-align: center;
 }
 
+p {
+    text-align: center;
+}
+
 h2 {
     text-align: center;
+}
+
+.button {
+    padding: 10px 40px 10px 40px;
+    background-color: blue;
+    color: mediumturquoise;
 }
 
 .playerDiv {
     margin: 0 auto; 
     text-align: center;
+}
+
+.playerText {
+   display: grid
 }
