@@ -4,13 +4,12 @@ let cardSuit = ['H', 'S', 'D', 'C'];
 let cardDeck = [];
 
 // SCORE COUNTER BETWEEN DEALER AND PLAYER 
-let dealerTotal = 0;
-let playerTotal = 0;
+let dealerTotal = [];
+let playerTotal = [];
 
 // BUTTONS STORED IN A VARIABLE 
 let hitButton = document.querySelector('#hitButton')
 let stayButton = document.querySelector('#stayButton')
-
 
 //LOOPING THROUGH THE SUITS AND VALUES TO FORM A DECK 
 function newDeck(){
@@ -21,7 +20,6 @@ function newDeck(){
     }
 }
 newDeck();
-
 
 // A FUNCTION THAT SHUFFLES MY DECK 
 function shuffleDeck (){
@@ -37,18 +35,24 @@ function shuffleDeck (){
 shuffleDeck();
 
 
+//HIT BUTTON THAT GENERATES RANDOM 2 CARDS TO PLAYER
 
-// when our button is clicked give one value out of the array, access our array a
+// hitButton.addEventListener('click', hitButtonFunction);
 
+// function hitButtonFunction (){
+//     shuffleDeck();
+//     // console.log(cardDeck)
+//     // logging first card 
+//     console.log(cardDeck[0])
+// }
 
-//HIT BUTTON THAT GENERATES RANDOM 2 CARDS TO PLAYER 
 hitButton.addEventListener('click', () => {
-    cardDeck.slice(Math.floor(Math.random())) 
-    console.log(cardDeck)
-
+    shuffleDeck();
+    // console.log(cardDeck)
+    // logging first card 
+    console.log(cardDeck[0])
 })
    
-
 //STAY BUTTON AND FUNCTION FOR WHAT HAPPENS NEXT 
 stayButton.addEventListener('click', () => {
 
@@ -56,6 +60,10 @@ stayButton.addEventListener('click', () => {
 
 //WIN CONDITION 
 // LOSE CONDITION 
+
+
+
+
 
 
 
