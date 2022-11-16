@@ -5,6 +5,7 @@
 // console.log(stayButton)
 //console.log(Math.floor(Math.random() * (cardValue[i] + cardSuit[k])))
 //console.log(cardDeck);
+// newDeck();
 
 //CARD DECK AND SUITS STORED IN VARIABLE
 let cardValue = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'K', 'Q'];
@@ -30,7 +31,7 @@ function newDeck(){
     console.log(cardDeck);
 }
 
-newDeck();
+// newDeck();
 
 
 //HIT BUTTON AND FUNCTION FOR WHAT HAPPENS NEXT 
@@ -47,6 +48,10 @@ hitButton.addEventListener('click', () => {
 stayButton.addEventListener('click', () => {
 
 })
+
+//WIN CONDITION 
+// LOSE CONDITION 
+
 
 
 
