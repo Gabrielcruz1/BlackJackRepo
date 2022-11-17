@@ -8,6 +8,7 @@ let dealerTotal = [];
 let playerTotal = [];
 
 // BUTTONS STORED IN A VARIABLE 
+let startButton = document.querySelector('#startButton')
 let hitButton = document.querySelector('#hitButton')
 let stayButton = document.querySelector('#stayButton')
 
@@ -15,15 +16,15 @@ let stayButton = document.querySelector('#stayButton')
 function newDeck(){
     for(let i=0; i < cardValue.length; i++){
         for (let k = 0; k < cardSuit.length; k++){
-          cardDeck.push(cardValue[i] + cardSuit[k])
+            cardDeck.push(cardValue[i] + cardSuit[k])
         }
     }
 }
-newDeck();
+newDeck(); 
 
 // A FUNCTION THAT SHUFFLES MY DECK 
 function shuffleDeck (){
-    let currentIndex = cardDeck.length, randomIndex;
+    let currentIndex = cardDeck.length //randomIndex;
     while (currentIndex !==0){
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex--;
@@ -33,6 +34,15 @@ function shuffleDeck (){
    return cardDeck
 }
 shuffleDeck();
+
+function startGame(){
+
+}
+
+
+
+
+
 
 
 //HIT BUTTON THAT GENERATES RANDOM 2 CARDS TO PLAYER
