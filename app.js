@@ -3,10 +3,13 @@ let cardValue = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'K', 'Q
 let cardSuit = ['♠', '♥', '♣', '♦'];
 let cardDeck = [];
 
-// SCORE COUNTER BETWEEN DEALER AND PLAYER 
+// HANDS THAT DEALER AND PLAYER HAVE
 let dealerTotal = [];
 let playerTotal = [];
+
+//HTML IN A VARIABLE 
 let playerHand = document.querySelector('#playerText')
+let dealerHand = document.querySelector('#dealerText');
 
 // BUTTONS STORED IN A VARIABLE 
 let startButton = document.querySelector('#startButton')
@@ -23,7 +26,6 @@ function newDeck(){
 }
 // newDeck();
 
-
 // A FUNCTION THAT SHUFFLES MY DECK 
 function shuffleDeck (){
     let currentIndex = cardDeck.length //randomIndex;
@@ -37,36 +39,49 @@ function shuffleDeck (){
 }
 // shuffleDeck();
 
-// a start game function because our deck is now loaded , once a player presses start then player gets two cards and dealer gets two cards// 1 of dealers cards is hidden 
-
-
+//splice 
 startButton.addEventListener('click', startGame)
 
 function startGame(){
+    // const n = 2;
     newDeck();
     shuffleDeck();
+    dealerTotal = cardDeck[Math.floor(Math.random() * cardDeck.length)]
+    playerTotal = cardDeck[Math.floor(Math.random() * cardDeck.length)];
+    playerHand.innerHTML = `Player ${playerTotal}`
+    dealerHand.innerHTML = `Dealer ${dealerTotal}`
+    // console.log(playerHand)
 }
 
-//HIT BUTTON THAT GENERATES RANDOM 2 CARDS TO PLAYER
+// We want to assign two values of the random array to our player and two random values of the array to our dealer 
 
-// hitButton.addEventListener('click', hitButtonFunction);
+function randomDealtHand(){
+    startGame()
+    // playerHand = cardDeck[0] ;
+}
 
-// function hitButtonFunction (){
-    //     shuffleDeck();
-    //     // console.log(cardDeck)
-    //     // logging first card 
-    //     console.log(cardDeck[0])
-    // }
+
+
+
+
+
+//HIT BUTTON THAT GENERATES RANDOM  CARD TO PLAYER
+
+hitButton.addEventListener('click', hitButtonFunction);
+
+function hitButtonFunction (){
+    console.log(cardDeck[0])
     
-    hitButton.addEventListener('click', () => {
-        // shuffleDeck();
-        // console.log(cardDeck)
-        // logging first card
-        // console.log(cardDeck[0])
-        // playerHand.innerHTML = `Player ${firstTwo}`
-        
-    })
+    // playerHand.innerHTML = `Player ${firstTwo}`
+    }
     
+
+
+
+
+
+
+
     //STAY BUTTON AND FUNCTION FOR WHAT HAPPENS NEXT 
 stayButton.addEventListener('click', () => {
 

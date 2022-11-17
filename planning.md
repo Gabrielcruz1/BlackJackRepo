@@ -39,6 +39,15 @@ PSUEDO CODE :
 //     shuffleDeck();
 // }
 
+   hitButton.addEventListener('click', () => {
+        // shuffleDeck();
+        // console.log(cardDeck)
+        // logging first card
+        // console.log(cardDeck[0])
+        // playerHand.innerHTML = `Player ${firstTwo}`
+        
+    })
+
 		 
 
     Wire frame:
