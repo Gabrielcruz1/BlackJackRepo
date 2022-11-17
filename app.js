@@ -37,60 +37,15 @@ function shuffleDeck (){
 }
 // shuffleDeck();
 
+// a start game function because our deck is now loaded , once a player presses start then player gets two cards and dealer gets two cards// 1 of dealers cards is hidden 
 
 
+startButton.addEventListener('click', startGame)
 
-
-window.onload = function startGame(){
-    newDeck(); 
+function startGame(){
+    newDeck();
     shuffleDeck();
 }
-
-
-
-
-
-
-
-// startButton.addEventListener('click', startGame)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //HIT BUTTON THAT GENERATES RANDOM 2 CARDS TO PLAYER
 

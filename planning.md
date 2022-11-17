@@ -32,6 +32,13 @@ PSUEDO CODE :
 		 EITHER WAY A NEW GAME WILL BE PLAYED 
 
 		 WE HAVE A HIT BUTTON AND A STAY BUTTON 
+
+
+		 unused function at the moment (remove later)// window.onload = function startGame(){
+//     newDeck(); 
+//     shuffleDeck();
+// }
+
 		 
 
     Wire frame:
