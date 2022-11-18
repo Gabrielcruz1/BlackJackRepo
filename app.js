@@ -46,7 +46,7 @@ function startGame(){
     shuffleDeck();
     hidden.push(cardDeck[Math.floor(Math.random() * cardDeck.length)])
     dealerTotal = cardDeck[Math.floor(Math.random() * cardDeck.length)]
-    console.log(dealerTotal + " dealerTotal")
+    // console.log(dealerTotal + " dealerTotal")
     for (let i = 0; i < 2; i++){
         randomCard = cardDeck[Math.floor(Math.random() * cardDeck.length)] 
         playerTotal.push(randomCard)
@@ -54,10 +54,9 @@ function startGame(){
     playerHand.innerHTML = `Player ${playerTotal}`
     dealerHand.innerHTML = `Dealer ${dealerTotal}`
     console.log(playerTotal)
-    // calculatePlayerHand()
     calculateDealerHand()
+    calculatePlayerHand()
 }
-
 
 
 //HIT BUTTON
@@ -65,48 +64,48 @@ hitButton.addEventListener('click', hitButtonFunction);
 
 function hitButtonFunction (){
     calculatePlayerHand()
-    // console.log(calculatePlayerHand)
-    // playerTotal += cardDeck[Math.floor(Math.random() * cardDeck.length)];
-    // playerHand.innerHTML = `Player ${playerTotal}`
+    // calculateDealerHand()
+    // console.log(dealerHand)
+    playerTotal += cardDeck[Math.floor(Math.random() * cardDeck.length)];
+    playerHand.innerHTML = `Player ${playerTotal}`
+    console.log(playerTotal)
     // console.log(cardDeck + " card Deck ")
-    // // calculateHand()
     // // playerHand.innerHTML = `Player ${firstTwo}`
     }
 
-
+    
 // //STAY BUTTON 
 // stayButton.addEventListener('click', stayButtonFunction )
-
-// function stayButtonFunction(){
-
-// }
+// function stayButtonFunction(){}
 
 
-//WIN CONDITION 
+let playerScore = 0;
+//CALCULATE PLAYER HAND
 let playerTotalNumber = [];
-
 function calculatePlayerHand(){
-    for(let i = 0; i < playerTotal.length ; i++){
-        if ( playerTotal[i][0] === "J" || playerTotal[i][0] === "K" || playerTotal[i][0] === "Q" ) {
-            playerTotalNumber.push(10)
-        }
-        else if (playerTotal[i][0] === "A") {
-            playerTotalNumber.push(11)
-        }
-        else if ( playerTotal[i][0] !== "J" || playerTotal[i][0] !== "K" || playerTotal[i][0] !== "Q" || playerTotal[i][0] !== "A") {
-            let numberValue = playerTotal[i].match(/\d+/)
-            numberValueNumber = Number(numberValue)
-            playerTotalNumber.push(numberValueNumber)
+for(let i = 0; i < playerTotal.length ; i++){
+if ( playerTotal[i][0] === "J" || playerTotal[i][0] ===     "K" || playerTotal[i][0] === "Q" ) {
+playerTotalNumber.push(10)
+    }
+    else if (playerTotal[i][0] === "A") {
+        playerTotalNumber.push(11)
+    }
+    else if ( playerTotal[i][0] !== "J" || playerTotal[i][0] !== "K" || playerTotal[i][0] !== "Q" || playerTotal[i][0] !== "A") {
+        let numberValue = playerTotal[i].match(/\d+/)
+    numberValueNumber = Number(numberValue)
+    playerTotalNumber.push(numberValueNumber)
         }
     }
+    playerScore = playerTotalNumber[0 + 1]
+    // console.log(playerScore)
     console.log(playerTotalNumber)
-     return playerTotalNumber
+    return playerTotalNumber
 }
-
+//CALCULATE DEALER HAND
 let dealerTotalNumber = [];
 function calculateDealerHand(){
     for(let i = 0; i < dealerTotal.length ; i++){
-        if ( dealerTotal[i][0] === "J" || dealerTotal[i][0] === "K" || dealerTotal[i][0] === "Q" || dealerTotal[i][10]) {
+        if ( dealerTotal[i][0] === "J" || dealerTotal[i][0] === "K" || dealerTotal[i][0] === "Q" || dealerTotal === 10) {
             dealerTotalNumber.push(10)
         }
         else if (dealerTotal[i][0] === "A") {
@@ -119,13 +118,31 @@ function calculateDealerHand(){
         }
     }
     console.log(dealerTotalNumber)
-     return dealerTotalNumber
-}
-
-
-
-
+    return dealerTotalNumber
+    }
+    
+        
 // LOSE CONDITION 
+function winlossFunction (){
+    if(playerTotal < 21){
+    console.log("hit again")
+    }
+}
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+
+
+
+
+
 
 
 
