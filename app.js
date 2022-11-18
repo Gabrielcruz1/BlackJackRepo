@@ -17,8 +17,6 @@ let startButton = document.querySelector('#startButton')
 let hitButton = document.querySelector('#hitButton')
 let stayButton = document.querySelector('#stayButton')
 
-
-
 //LOOPING THROUGH THE SUITS AND VALUES TO FORM A DECK 
 function newDeck(){
     for(let i=0; i < cardValue.length; i++){
@@ -50,9 +48,17 @@ function startGame(){
     shuffleDeck();
     hidden.push(cardDeck[Math.floor(Math.random() * cardDeck.length)])
     dealerTotal = cardDeck[Math.floor(Math.random() * cardDeck.length)]
-    console.log(dealerTotal)
+    console.log(dealerTotal + " dealerTotal")
     // console.log(hidden)
-    playerTotal = cardDeck[Math.floor(Math.random() * cardDeck.length)] + cardDeck[Math.floor(Math.random() * cardDeck.length)]
+
+
+
+    for (let i = 0; i < 2; i++){
+        randomCard = cardDeck[Math.floor(Math.random() * cardDeck.length)] 
+        playerTotal.push(randomCard)
+    }
+
+
     playerHand.innerHTML = `Player ${playerTotal}`
     dealerHand.innerHTML = `Dealer ${dealerTotal}`
     console.log(playerTotal)
@@ -67,7 +73,7 @@ hitButton.addEventListener('click', hitButtonFunction);
 function hitButtonFunction (){
     playerTotal += cardDeck[Math.floor(Math.random() * cardDeck.length)];
     playerHand.innerHTML = `Player ${playerTotal}`
-    console.log(cardDeck)
+    console.log(cardDeck + " card Deck ")
     // calculateHand()
     // playerHand.innerHTML = `Player ${firstTwo}`
     }
@@ -79,19 +85,43 @@ function hitButtonFunction (){
 
 // })
 
-//WIN CONDITION 
 
+
+
+
+//WIN CONDITION 
+let playerTotalNumber = [];
 function calculatePlayerHand(){
-    playerTotal = cardDeck[0].match(/\d+/);
+    for(let i = 0; i < playerTotal.length ; i++){
+        if ( playerTotal[0][0] === "J" || playerTotal[0][0] === "K" || playerTotal[0][0] === "Q") {
+            playerTotal[0] = 10
+            playerTotalNumber.push(playerTotal[0])
+        } else {
+            let playerTotal1 = playerTotal[0].match(/\d+/)
+           let gabriel = Number(playerTotal1)
+            playerTotalNumber.push(gabriel)
+        }
+    }
     cardDeckNumber = Number(playerTotal);
-    console.log(playerTotal);
-    console.log(cardDeckNumber)
+    console.log(playerTotal + "playerTotal2");
+    console.log(cardDeckNumber + " cardDeckNumber")
     // dealerTotal = cardDeck[0].match(/\d+/);
     // cardDeckNumber = Number(dealerTotal);
     // console.log(dealerTotal)
 
 }
 calculatePlayerHand();
+
+
+
+
+
+
+
+
+
+
+
 
 
 // LOSE CONDITION 
