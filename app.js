@@ -17,7 +17,7 @@ let startButton = document.querySelector('#startButton')
 let hitButton = document.querySelector('#hitButton')
 let stayButton = document.querySelector('#stayButton')
 
-//LOOPING THROUGH THE SUITS AND VALUES TO FORM A DECK 
+//LOOPING THROUGH SUITS & VALUES TO MAKE DECK 
 function newDeck(){
     for(let i=0; i < cardValue.length; i++){
         for (let k = 0; k < cardSuit.length; k++){
@@ -26,8 +26,7 @@ function newDeck(){
     }
 }
 
-
-// A FUNCTION THAT SHUFFLES MY DECK 
+// SHUFFLES MY DECK 
 function shuffleDeck (){
     let currentIndex = cardDeck.length //randomIndex;
     while (currentIndex !==0){
@@ -39,8 +38,7 @@ function shuffleDeck (){
     return cardDeck
 }
 
-
-
+//START BUTTON FUNCTION
 startButton.addEventListener('click', startGame)
 
 function startGame(){
@@ -49,20 +47,15 @@ function startGame(){
     hidden.push(cardDeck[Math.floor(Math.random() * cardDeck.length)])
     dealerTotal = cardDeck[Math.floor(Math.random() * cardDeck.length)]
     console.log(dealerTotal + " dealerTotal")
-    // console.log(hidden)
-
-
-
     for (let i = 0; i < 2; i++){
         randomCard = cardDeck[Math.floor(Math.random() * cardDeck.length)] 
         playerTotal.push(randomCard)
     }
-
-
     playerHand.innerHTML = `Player ${playerTotal}`
     dealerHand.innerHTML = `Dealer ${dealerTotal}`
     console.log(playerTotal)
-    calculatePlayerHand()
+    // calculatePlayerHand()
+    calculateDealerHand()
 }
 
 
@@ -71,13 +64,14 @@ function startGame(){
 hitButton.addEventListener('click', hitButtonFunction);
 
 function hitButtonFunction (){
-    playerTotal += cardDeck[Math.floor(Math.random() * cardDeck.length)];
-    playerHand.innerHTML = `Player ${playerTotal}`
-    console.log(cardDeck + " card Deck ")
-    // calculateHand()
-    // playerHand.innerHTML = `Player ${firstTwo}`
+    calculatePlayerHand()
+    // console.log(calculatePlayerHand)
+    // playerTotal += cardDeck[Math.floor(Math.random() * cardDeck.length)];
+    // playerHand.innerHTML = `Player ${playerTotal}`
+    // console.log(cardDeck + " card Deck ")
+    // // calculateHand()
+    // // playerHand.innerHTML = `Player ${firstTwo}`
     }
-
 
 
 // //STAY BUTTON AND FUNCTION FOR WHAT HAPPENS NEXT 
@@ -89,37 +83,52 @@ function hitButtonFunction (){
 
 
 
+
+
 //WIN CONDITION 
 let playerTotalNumber = [];
 
 function calculatePlayerHand(){
-    console.log(playerTotal)
     for(let i = 0; i < playerTotal.length ; i++){
-        if ( playerTotal[i][0] === "J" || playerTotal[i][0] === "K" || playerTotal[i][0] === "Q" || playerTotal[i][0] === "A") {
-            console.log("face card")
+        if ( playerTotal[i][0] === "J" || playerTotal[i][0] === "K" || playerTotal[i][0] === "Q" ) {
             playerTotalNumber.push(10)
-        } if ( playerTotal[i][0] !== "J" || playerTotal[i][0] !== "K" || playerTotal[i][0] !== "Q" || playerTotal[i][0] === "A") {
-            console.log("numerical card")
-            let numberValue = playerTotal[i][0].match(/\d+/)
-            //  console.log(numberValue[0])
-            console.log(numberValue)
-            playerTotalNumber.push(numberValue)
+        }
+        else if (playerTotal[i][0] === "A") {
+            playerTotalNumber.push(11)
+        }
+        else if ( playerTotal[i][0] !== "J" || playerTotal[i][0] !== "K" || playerTotal[i][0] !== "Q" || playerTotal[i][0] !== "A") {
+            let numberValue = playerTotal[i].match(/\d+/)
+            numberValueNumber = Number(numberValue)
+            playerTotalNumber.push(numberValueNumber)
         }
     }
     console.log(playerTotalNumber)
      return playerTotalNumber
-   // console.log(playerTotal);
-    //console.log(cardDeckNumber)
-    // dealerTotal = cardDeck[0].match(/\d+/);
-    // cardDeckNumber = Number(dealerTotal);
-    // console.log(dealerTotal)
+}
+
+let dealerTotalNumber = [];
+function calculateDealerHand(){
+    for(let i = 0; i < dealerTotal.length ; i++){
+        if ( dealerTotal[i][0] === "J" || dealerTotal[i][0] === "K" || dealerTotal[i][0] === "Q" || dealerTotal[i][10]) {
+            dealerTotalNumber.push(10)
+        }
+        else if (dealerTotal[i][0] === "A") {
+            dealerTotalNumber.push(10)
+        }
+        else if ( dealerTotal[i][0] !== "J" || dealerTotal[i][0] !== "K" || dealerTotal[i][0] !== "Q" || dealerTotal[i][0] !== "A") {
+            let numberValue = dealerTotal[i].match(/\d+/)
+            numberValueNumber = Number(numberValue)
+            dealerTotalNumber.push(numberValueNumber)
+        }
+    }
+    console.log(dealerTotalNumber)
+     return dealerTotalNumber
 }
 
 
 
 
 // LOSE CONDITION 
-
 
 
 
