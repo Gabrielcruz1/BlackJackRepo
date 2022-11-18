@@ -91,35 +91,29 @@ function hitButtonFunction (){
 
 //WIN CONDITION 
 let playerTotalNumber = [];
+
 function calculatePlayerHand(){
+    console.log(playerTotal)
     for(let i = 0; i < playerTotal.length ; i++){
-        if ( playerTotal[0][0] === "J" || playerTotal[0][0] === "K" || playerTotal[0][0] === "Q") {
-            playerTotal[0] = 10
-            playerTotalNumber.push(playerTotal[0])
-        } else {
-            let playerTotal1 = playerTotal[0].match(/\d+/)
-           let gabriel = Number(playerTotal1)
-            playerTotalNumber.push(gabriel)
+        if ( playerTotal[i][0] === "J" || playerTotal[i][0] === "K" || playerTotal[i][0] === "Q" || playerTotal[i][0] === "A") {
+            console.log("face card")
+            playerTotalNumber.push(10)
+        } if ( playerTotal[i][0] !== "J" || playerTotal[i][0] !== "K" || playerTotal[i][0] !== "Q" || playerTotal[i][0] === "A") {
+            console.log("numerical card")
+            let numberValue = playerTotal[i][0].match(/\d+/)
+            //  console.log(numberValue[0])
+            console.log(numberValue)
+            playerTotalNumber.push(numberValue)
         }
     }
-    cardDeckNumber = Number(playerTotal);
-    console.log(playerTotal + "playerTotal2");
-    console.log(cardDeckNumber + " cardDeckNumber")
+    console.log(playerTotalNumber)
+     return playerTotalNumber
+   // console.log(playerTotal);
+    //console.log(cardDeckNumber)
     // dealerTotal = cardDeck[0].match(/\d+/);
     // cardDeckNumber = Number(dealerTotal);
     // console.log(dealerTotal)
-
 }
-calculatePlayerHand();
-
-
-
-
-
-
-
-
-
 
 
 
