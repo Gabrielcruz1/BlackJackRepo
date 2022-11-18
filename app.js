@@ -44,19 +44,30 @@ startButton.addEventListener('click', startGame)
 function startGame(){
     newDeck();
     shuffleDeck();
+    
     hidden.push(cardDeck[Math.floor(Math.random() * cardDeck.length)])
+
     dealerTotal = cardDeck[Math.floor(Math.random() * cardDeck.length)]
-    // console.log(dealerTotal + " dealerTotal")
+    console.log(dealerTotal + " dealerTotal")
+
+
     for (let i = 0; i < 2; i++){
         randomCard = cardDeck[Math.floor(Math.random() * cardDeck.length)] 
         playerTotal.push(randomCard)
     }
-    playerHand.innerHTML = `Player ${playerTotal}`
-    dealerHand.innerHTML = `Dealer ${dealerTotal}`
+
+
+    // playerHand.innerHTML = `Player ${playerTotal}`
+    // dealerHand.innerHTML = `Dealer ${dealerTotal}`
     console.log(playerTotal)
     calculateDealerHand()
     calculatePlayerHand()
 }
+
+
+
+
+
 
 
 //HIT BUTTON
@@ -77,6 +88,12 @@ function hitButtonFunction (){
 // //STAY BUTTON 
 // stayButton.addEventListener('click', stayButtonFunction )
 // function stayButtonFunction(){}
+
+
+
+
+
+
 
 
 let playerScore = 0;
@@ -101,6 +118,11 @@ playerTotalNumber.push(10)
     console.log(playerTotalNumber)
     return playerTotalNumber
 }
+
+
+
+
+
 //CALCULATE DEALER HAND
 let dealerTotalNumber = [];
 function calculateDealerHand(){
