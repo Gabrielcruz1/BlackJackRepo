@@ -1,4 +1,6 @@
-
+let cardValue = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'K', 'Q'];
+let cardSuit = ['♠', '♥', '♣', '♦'];
+let cardDeck = [];
 
 // HANDS THAT DEALER AND PLAYER HAVE
 let dealerTotal = [];
@@ -15,10 +17,6 @@ let stayButton = document.querySelector('#stayButton')
 
 //LOOPING THROUGH THE SUITS AND VALUES TO FORM A DECK 
 function newDeck(){
-    let cardValue = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'K', 'Q'];
-    let cardSuit = ['♠', '♥', '♣', '♦'];
-    let cardDeck = [];
-
     for(let i=0; i < cardValue.length; i++){
         for (let k = 0; k < cardSuit.length; k++){
             cardDeck.push(cardValue[i] + cardSuit[k])
@@ -46,23 +44,19 @@ startButton.addEventListener('click', startGame)
 function startGame(){
     newDeck();
     shuffleDeck();
+    let hidden = [];
     dealerTotal = cardDeck[Math.floor(Math.random() * cardDeck.length)]
-    playerTotal = cardDeck[Math.floor(Math.random() * cardDeck.length)]
+    console.log(hidden)
+    playerTotal = cardDeck[Math.floor(Math.random() * cardDeck.length)] + cardDeck[Math.floor(Math.random() * cardDeck.length)]
     playerHand.innerHTML = `Player ${playerTotal}`
     dealerHand.innerHTML = `Dealer ${dealerTotal}`
     // console.log(playerHand)
 }
 
-// We want to assign two values of the random array to our player and two random values of the array to our dealer 
-
 function randomDealtHand(){
     startGame()
     // playerHand = cardDeck[0] ;
 }
-
-
-
-
 
 
 //HIT BUTTON THAT GENERATES RANDOM  CARD TO PLAYER
