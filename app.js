@@ -60,7 +60,7 @@ function startGame(){
 
 
 
-//HIT BUTTON THAT GENERATES RANDOM  CARD TO PLAYER
+//HIT BUTTON
 hitButton.addEventListener('click', hitButtonFunction);
 
 function hitButtonFunction (){
@@ -74,15 +74,12 @@ function hitButtonFunction (){
     }
 
 
-// //STAY BUTTON AND FUNCTION FOR WHAT HAPPENS NEXT 
-// stayButton.addEventListener('click', () => {
+// //STAY BUTTON 
+// stayButton.addEventListener('click', stayButtonFunction )
 
-// })
+// function stayButtonFunction(){
 
-
-
-
-
+// }
 
 
 //WIN CONDITION 
