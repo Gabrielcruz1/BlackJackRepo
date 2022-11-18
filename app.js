@@ -1,7 +1,4 @@
-//CARD DECK AND SUITS STORED IN VARIABLE
-let cardValue = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'K', 'Q'];
-let cardSuit = ['♠', '♥', '♣', '♦'];
-let cardDeck = [];
+
 
 // HANDS THAT DEALER AND PLAYER HAVE
 let dealerTotal = [];
@@ -18,6 +15,10 @@ let stayButton = document.querySelector('#stayButton')
 
 //LOOPING THROUGH THE SUITS AND VALUES TO FORM A DECK 
 function newDeck(){
+    let cardValue = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'K', 'Q'];
+    let cardSuit = ['♠', '♥', '♣', '♦'];
+    let cardDeck = [];
+
     for(let i=0; i < cardValue.length; i++){
         for (let k = 0; k < cardSuit.length; k++){
             cardDeck.push(cardValue[i] + cardSuit[k])
@@ -43,11 +44,10 @@ function shuffleDeck (){
 startButton.addEventListener('click', startGame)
 
 function startGame(){
-    // const n = 2;
     newDeck();
     shuffleDeck();
     dealerTotal = cardDeck[Math.floor(Math.random() * cardDeck.length)]
-    playerTotal = cardDeck[Math.floor(Math.random() * cardDeck.length)];
+    playerTotal = cardDeck[Math.floor(Math.random() * cardDeck.length)]
     playerHand.innerHTML = `Player ${playerTotal}`
     dealerHand.innerHTML = `Dealer ${dealerTotal}`
     // console.log(playerHand)
@@ -70,15 +70,13 @@ function randomDealtHand(){
 hitButton.addEventListener('click', hitButtonFunction);
 
 function hitButtonFunction (){
+    playerTotal += cardDeck[Math.floor(Math.random() * cardDeck.length)];
+    playerHand.innerHTML = `Player ${playerTotal}`
     console.log(cardDeck[0])
     
     // playerHand.innerHTML = `Player ${firstTwo}`
     }
     
-
-
-
-
 
 
 
