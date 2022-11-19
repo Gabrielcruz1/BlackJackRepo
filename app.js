@@ -45,20 +45,23 @@ function startGame(){
     newDeck();
     shuffleDeck();
     hidden = (cardDeck[Math.floor(Math.random() * cardDeck.length)])
-    console.log(hidden)
+    console.log(hidden + " hidden number in the hidden array")
     // hidden.push(cardDeck[Math.floor(Math.random() * cardDeck.length)])
     dealerTotal =  cardDeck[Math.floor(Math.random() * cardDeck.length)]
-    console.log(dealerTotal + " dealerTotal")
+    dealerTotalNumber = hidden.value + dealerTotal.value
+    console.log(dealerTotalNumber + " the hidden number and the dealer total added")
+    // console.log(dealerSum)
+    console.log(dealerTotal + " dealers first card given")
     for (let i = 0; i < 2; i++){
         randomCard = cardDeck[Math.floor(Math.random() * cardDeck.length)] 
         playerTotal.push(randomCard)
-    }
+        }
     playerHand.innerHTML = `Player ${playerTotal}`
     dealerHand.innerHTML = `Dealer ${dealerTotal}`
-    console.log(playerTotal + " playerTotal")
+    console.log(playerTotal + " players hand")
     calculateDealerHand()
     calculatePlayerHand()
-    console.log(playerTotalNumber) // we do not have to have this number appear on the dom, only have to  have it calculated and ran in a conditional.        
+    console.log(playerTotalNumber + " this is the sum of the total hand") // we do not have to have this number appear on the dom, only have to  have it calculated and ran in a conditional.        
     console.log(cardDeck)
 }
 
@@ -85,8 +88,11 @@ function stayButtonFunction(){
     
 }
 
+
+
 let playerScore = 0;
 //CALCULATE PLAYER HAND
+
 let playerTotalNumber = 0;
 function calculatePlayerHand(){
 for(let i = 0; i < playerTotal.length ; i++){
@@ -102,22 +108,15 @@ playerTotalNumber+=10
     playerTotalNumber+= numberValueNumber
         }
     }
-    playerScore = 0; 
-
-    playerScore = 0 ;
-    for (let i = 0; i < playerTotalNumber.length; i++){
-        playerScore = playerScore + playerTotalNumber[i]
-    }
+    
+    // playerScore = 0 ;
+    // for (let i = 0; i < playerTotalNumber.length; i++){
+    //     playerScore = playerScore + playerTotalNumber[i]
+    // }
     // console.log(playerScore + " player score")
     // console.log(playerTotalNumber)
     return playerTotalNumber
 }
-
-
-
-
-
-
 
 //CALCULATE DEALER HAND
 let dealerTotalNumber = 0;
@@ -139,16 +138,7 @@ function calculateDealerHand(){
     return dealerTotalNumber
     }
   
-    
 
-
-
-
-
-
-
-
-        
 // LOSE CONDITION 
 function winningGame(){
     if(playerTotalNumber === 21){
@@ -160,8 +150,8 @@ function winningGame(){
         
         
         
-console.log(cardDeck)
-        
+// console.log("hello world")
+// console.log("hello world ")
         
         
         
