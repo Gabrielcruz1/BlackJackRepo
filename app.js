@@ -65,31 +65,6 @@ function startGame(){
     console.log(cardDeck)
 }
 
-
-//HIT BUTTON
-hitButton.addEventListener('click', hitButtonFunction);
-
-function hitButtonFunction (){
-    calculatePlayerHand()
-    // calculateDealerHand()
-    // console.log(dealerHand)
-    playerTotal += cardDeck[Math.floor(Math.random() * cardDeck.length)];
-    playerHand.innerHTML = `Player ${playerTotal}`
-    console.log(playerTotal)
-    // console.log(cardDeck + " card Deck ")
-    // // playerHand.innerHTML = `Player ${firstTwo}`
-    }
-
-    
-// //STAY BUTTON 
-stayButton.addEventListener('click', stayButtonFunction )
-function stayButtonFunction(){
-    winningGame()
-    
-}
-
-
-
 let playerScore = 0;
 //CALCULATE PLAYER HAND
 
@@ -138,6 +113,51 @@ function calculateDealerHand(){
     return dealerTotalNumber
     }
   
+
+
+
+//HIT BUTTON
+hitButton.addEventListener('click', hitButtonFunction);
+
+function hitButtonFunction (){
+    calculatePlayerHand()
+    // calculateDealerHand()
+    // console.log(dealerHand)
+    playerTotal += cardDeck[Math.floor(Math.random() * cardDeck.length)];
+    playerHand.innerHTML = `Player ${playerTotal}`
+    console.log(playerTotal)
+    // console.log(cardDeck + " card Deck ")
+    // // playerHand.innerHTML = `Player ${firstTwo}`
+    }
+
+    
+// //STAY BUTTON 
+stayButton.addEventListener('click', stayButtonFunction )
+function stayButtonFunction(){
+    winningGame()
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // LOSE CONDITION 
 function winningGame(){
