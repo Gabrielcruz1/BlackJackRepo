@@ -47,9 +47,10 @@ function startGame(){
     shuffleDeck();
     hidden = (cardDeck[Math.floor(Math.random() * cardDeck.length)])
     console.log(hidden + " hidden number in the hidden array")
-    // hidden.push(cardDeck[Math.floor(Math.random() * cardDeck.length)])
+
     dealerTotal =  cardDeck[Math.floor(Math.random() * cardDeck.length)]
-    dealerTotalNumber = hidden.value + dealerTotal.value
+
+    // dealerTotalNumber = hidden.value + dealerTotal.value
     console.log(dealerTotalNumber + " the hidden number and the dealer total added")
     // console.log(dealerSum)
     console.log(dealerTotal + " dealers first card given")
@@ -146,6 +147,15 @@ function winningGame(){
         console.log("Keep Going")
     } else console.log("BUST")
 }
+
+function losingGame(){
+    if(dealerTotalNumber === 21){
+        return console.log("BlackJack")
+    } else if (dealerTotalNumber < 21) {
+        console.log("Keep Going")
+    } else console.log("BUST")
+}
+        
         
         
         
