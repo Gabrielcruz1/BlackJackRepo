@@ -41,6 +41,7 @@ function shuffleDeck (){
 //START BUTTON FUNCTION
 startButton.addEventListener('click', startGame)
 
+
 function startGame(){
     newDeck();
     shuffleDeck();
@@ -61,9 +62,11 @@ function startGame(){
     console.log(playerTotal + " players hand")
     calculateDealerHand()
     calculatePlayerHand()
-    console.log(playerTotalNumber + " this is the sum of the total hand") // we do not have to have this number appear on the dom, only have to  have it calculated and ran in a conditional.        
+    console.log(playerTotalNumber + " this is the sum of the player hand") // we do not have to have this number appear on the dom, only have to  have it calculated and ran in a conditional.        
     console.log(cardDeck)
 }
+
+
 
 let playerScore = 0;
 //CALCULATE PLAYER HAND
@@ -83,12 +86,6 @@ playerTotalNumber+=10
     playerTotalNumber+= numberValueNumber
         }
     }
-    
-    // playerScore = 0 ;
-    // for (let i = 0; i < playerTotalNumber.length; i++){
-    //     playerScore = playerScore + playerTotalNumber[i]
-    // }
-    // console.log(playerScore + " player score")
     // console.log(playerTotalNumber)
     return playerTotalNumber
 }
@@ -137,24 +134,6 @@ function stayButtonFunction(){
     winningGame()
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
