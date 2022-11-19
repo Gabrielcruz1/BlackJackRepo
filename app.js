@@ -4,13 +4,13 @@ let cardSuit = ['♠', '♥', '♣', '♦'];
 let cardDeck = [];
 
 // HANDS THAT DEALER AND PLAYER HAVE
-let dealerTotal = [];
-let playerTotal = [];
+let dealerHand = [];
+let playerHand = [];
 let hidden = 0;
 
 //HTML IN A VARIABLE 
-let playerHand = document.querySelector('#playerText')
-let dealerHand = document.querySelector('#dealerText');
+let playerTextOnScreen = document.querySelector('#playerText')
+let dealerTextOnScreen = document.querySelector('#dealerText');
 
 // BUTTONS STORED IN A VARIABLE 
 let startButton = document.querySelector('#startButton')
@@ -48,19 +48,19 @@ function startGame(){
     hidden = (cardDeck[Math.floor(Math.random() * cardDeck.length)])
     console.log(hidden + " hidden number in the hidden array")
 
-    dealerTotal =  cardDeck[Math.floor(Math.random() * cardDeck.length)]
+    dealerHand =  cardDeck[Math.floor(Math.random() * cardDeck.length)]
 
-    // dealerTotalNumber = hidden.value + dealerTotal.value
+    // dealerTotalNumber = hidden.value + dealerHand.value
     console.log(dealerTotalNumber + " the hidden number and the dealer total added")
     // console.log(dealerSum)
-    console.log(dealerTotal + " dealers first card given")
+    console.log(dealerHand + " dealers first card given")
     for (let i = 0; i < 2; i++){
         randomCard = cardDeck[Math.floor(Math.random() * cardDeck.length)] 
-        playerTotal.push(randomCard)
+        playerHand.push(randomCard)
         }
-    playerHand.innerHTML = `Player ${playerTotal}`
-    dealerHand.innerHTML = `Dealer ${dealerTotal}`
-    console.log(playerTotal + " players hand")
+    playerTextOnScreen.innerHTML = `Player ${playerHand}`
+    dealerTextOnScreen.innerHTML = `Dealer ${dealerHand}`
+    console.log(playerHand + " players hand")
     calculateDealerHand()
     calculatePlayerHand()
     console.log(playerTotalNumber + " this is the sum of the player hand") // we do not have to have this number appear on the dom, only have to  have it calculated and ran in a conditional.        
@@ -74,15 +74,15 @@ let playerScore = 0;
 
 let playerTotalNumber = 0;
 function calculatePlayerHand(){
-for(let i = 0; i < playerTotal.length ; i++){
-if ( playerTotal[i][0] === "J" || playerTotal[i][0] ===     "K" || playerTotal[i][0] === "Q" ) {
+for(let i = 0; i < playerHand.length ; i++){
+if ( playerHand[i][0] === "J" || playerHand[i][0] ===     "K" || playerHand[i][0] === "Q" ) {
 playerTotalNumber+=10
     }
-    else if (playerTotal[i][0] === "A") {
+    else if (playerHand[i][0] === "A") {
         playerTotalNumber+= 11
     }
-    else if ( playerTotal[i][0] !== "J" || playerTotal[i][0] !== "K" || playerTotal[i][0] !== "Q" || playerTotal[i][0] !== "A") {
-        let numberValue = playerTotal[i].match(/\d+/)
+    else if ( playerHand[i][0] !== "J" || playerHand[i][0] !== "K" || playerHand[i][0] !== "Q" || playerHand[i][0] !== "A") {
+        let numberValue = playerHand[i].match(/\d+/)
     numberValueNumber = Number(numberValue)
     playerTotalNumber+= numberValueNumber
         }
@@ -94,17 +94,18 @@ playerTotalNumber+=10
 //CALCULATE DEALER HAND
 let dealerTotalNumber = 0;
 function calculateDealerHand(){
-    for(let i = 0; i < dealerTotal.length ; i++){
-        if ( dealerTotal[i][0] === "J" || dealerTotal[i][0] === "K" || dealerTotal[i][0] === "Q" || dealerTotal === 10) {
+    for(let i = 0; i < dealerHand.length ; i++){
+        if ( dealerHand[i][0] === "J" || dealerHand[i][0] === "K" || dealerHand[i][0] === "Q" || dealerHand === 10) {
             dealerTotalNumber+=10
         }
-        else if (dealerTotal[i][0] === "A") {
-            dealerTotalNumber+=10
+        else if (dealerHand[i][0] === "A") {
+            dealerTotalNumber+=11
         }
-        else if ( dealerTotal[i][0] !== "J" || dealerTotal[i][0] !== "K" || dealerTotal[i][0] !== "Q" || dealerTotal[i][0] !== "A") {
-            let numberValue = dealerTotal[i].match(/\d+/)
+        else if ( dealerHand[i][0] !== "J" || dealerHand[i][0] !== "K" || dealerHand[i][0] !== "Q" || dealerHand[i][0] !== "A") {
+            
+            let numberValue = dealerHand[i].match(/\d+/)
             numberValueNumber = Number(numberValue)
-            dealerTotalNumber += numberValueNumber
+            dealerTotalNumber+= numberValueNumber
         }
     }
     // console.log(dealerTotalNumber)
@@ -121,11 +122,11 @@ function hitButtonFunction (){
     calculatePlayerHand()
     // calculateDealerHand()
     // console.log(dealerHand)
-    playerTotal += cardDeck[Math.floor(Math.random() * cardDeck.length)];
-    playerHand.innerHTML = `Player ${playerTotal}`
-    console.log(playerTotal)
+    playerHand += cardDeck[Math.floor(Math.random() * cardDeck.length)];
+    playerTextOnScreen.innerHTML = `Player ${playerHand}`
+    console.log(playerHand)
     // console.log(cardDeck + " card Deck ")
-    // // playerHand.innerHTML = `Player ${firstTwo}`
+    // // playerTextOnScreen.innerHTML = `Player ${firstTwo}`
     }
 
     
@@ -148,34 +149,13 @@ function winningGame(){
     } else console.log("BUST")
 }
 
-function losingGame(){
-    if(dealerTotalNumber === 21){
-        return console.log("BlackJack")
-    } else if (dealerTotalNumber < 21) {
-        console.log("Keep Going")
-    } else console.log("BUST")
-}
-        
-        
-        
-        
-// console.log("hello world")
-// console.log("hello world ")
-        
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-
+// function losingGame(){
+//     if(dealerTotalNumber === 21){
+//         return console.log("BlackJack")
+//     } else if (dealerTotalNumber < 21) {
+//         console.log("Keep Going")
+//     } else console.log("BUST")
+// }
 
 
 
