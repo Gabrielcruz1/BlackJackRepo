@@ -6,7 +6,7 @@ let cardDeck = [];
 // HANDS THAT DEALER AND PLAYER HAVE
 let dealerTotal = [];
 let playerTotal = [];
-let hidden = [];
+let hidden = 0;
 
 //HTML IN A VARIABLE 
 let playerHand = document.querySelector('#playerText')
@@ -44,30 +44,23 @@ startButton.addEventListener('click', startGame)
 function startGame(){
     newDeck();
     shuffleDeck();
-    
-    hidden.push(cardDeck[Math.floor(Math.random() * cardDeck.length)])
-
-    dealerTotal = cardDeck[Math.floor(Math.random() * cardDeck.length)]
+    hidden = (cardDeck[Math.floor(Math.random() * cardDeck.length)])
+    console.log(hidden)
+    // hidden.push(cardDeck[Math.floor(Math.random() * cardDeck.length)])
+    dealerTotal =  cardDeck[Math.floor(Math.random() * cardDeck.length)]
     console.log(dealerTotal + " dealerTotal")
-
-
     for (let i = 0; i < 2; i++){
         randomCard = cardDeck[Math.floor(Math.random() * cardDeck.length)] 
         playerTotal.push(randomCard)
     }
-
-
-    // playerHand.innerHTML = `Player ${playerTotal}`
-    // dealerHand.innerHTML = `Dealer ${dealerTotal}`
-    console.log(playerTotal)
+    playerHand.innerHTML = `Player ${playerTotal}`
+    dealerHand.innerHTML = `Dealer ${dealerTotal}`
+    console.log(playerTotal + " playerTotal")
     calculateDealerHand()
     calculatePlayerHand()
+    console.log(playerTotalNumber) // we do not have to have this number appear on the dom, only have to  have it calculated and ran in a conditional.        
+    console.log(cardDeck)
 }
-
-
-
-
-
 
 
 //HIT BUTTON
@@ -86,36 +79,37 @@ function hitButtonFunction (){
 
     
 // //STAY BUTTON 
-// stayButton.addEventListener('click', stayButtonFunction )
-// function stayButtonFunction(){}
-
-
-
-
-
-
-
+stayButton.addEventListener('click', stayButtonFunction )
+function stayButtonFunction(){
+    winningGame()
+    
+}
 
 let playerScore = 0;
 //CALCULATE PLAYER HAND
-let playerTotalNumber = [];
+let playerTotalNumber = 0;
 function calculatePlayerHand(){
 for(let i = 0; i < playerTotal.length ; i++){
 if ( playerTotal[i][0] === "J" || playerTotal[i][0] ===     "K" || playerTotal[i][0] === "Q" ) {
-playerTotalNumber.push(10)
+playerTotalNumber+=10
     }
     else if (playerTotal[i][0] === "A") {
-        playerTotalNumber.push(11)
+        playerTotalNumber+= 11
     }
     else if ( playerTotal[i][0] !== "J" || playerTotal[i][0] !== "K" || playerTotal[i][0] !== "Q" || playerTotal[i][0] !== "A") {
         let numberValue = playerTotal[i].match(/\d+/)
     numberValueNumber = Number(numberValue)
-    playerTotalNumber.push(numberValueNumber)
+    playerTotalNumber+= numberValueNumber
         }
     }
-    playerScore = playerTotalNumber[0 + 1]
-    // console.log(playerScore)
-    console.log(playerTotalNumber)
+    playerScore = 0; 
+
+    playerScore = 0 ;
+    for (let i = 0; i < playerTotalNumber.length; i++){
+        playerScore = playerScore + playerTotalNumber[i]
+    }
+    // console.log(playerScore + " player score")
+    // console.log(playerTotalNumber)
     return playerTotalNumber
 }
 
@@ -123,37 +117,50 @@ playerTotalNumber.push(10)
 
 
 
+
+
 //CALCULATE DEALER HAND
-let dealerTotalNumber = [];
+let dealerTotalNumber = 0;
 function calculateDealerHand(){
     for(let i = 0; i < dealerTotal.length ; i++){
         if ( dealerTotal[i][0] === "J" || dealerTotal[i][0] === "K" || dealerTotal[i][0] === "Q" || dealerTotal === 10) {
-            dealerTotalNumber.push(10)
+            dealerTotalNumber+=10
         }
         else if (dealerTotal[i][0] === "A") {
-            dealerTotalNumber.push(10)
+            dealerTotalNumber+=10
         }
         else if ( dealerTotal[i][0] !== "J" || dealerTotal[i][0] !== "K" || dealerTotal[i][0] !== "Q" || dealerTotal[i][0] !== "A") {
             let numberValue = dealerTotal[i].match(/\d+/)
             numberValueNumber = Number(numberValue)
-            dealerTotalNumber.push(numberValueNumber)
+            dealerTotalNumber += numberValueNumber
         }
     }
-    console.log(dealerTotalNumber)
+    // console.log(dealerTotalNumber)
     return dealerTotalNumber
     }
+  
     
+
+
+
+
+
+
+
+
         
 // LOSE CONDITION 
-function winlossFunction (){
-    if(playerTotal < 21){
-    console.log("hit again")
-    }
+function winningGame(){
+    if(playerTotalNumber === 21){
+        return console.log("BlackJack")
+    } else if (playerTotalNumber < 21) {
+        console.log("Keep Going")
+    } else console.log("BUST")
 }
         
         
         
-        
+console.log(cardDeck)
         
         
         
