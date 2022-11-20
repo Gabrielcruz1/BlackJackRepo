@@ -8,13 +8,13 @@ html {
 
 h1 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: greenyellow;
-    margin: 60px;
+    color: yellow;
+    margin: 90px 0px 0px 0px;
     text-align: center;
 }
 
 .symbols {
-    color: white;
+    color: black;
     font-size: 60px;
     /* margin: 90px 0px 0px 0px; */
 }
@@ -64,17 +64,18 @@ h2 {
 .inputClass {
     margin: 0 auto;
     padding: 5px;
+    /* border: black; */
     font-style: italic;
     text-align: center;
 }
 
 
-/* @media (max-width: 200px) {
-    body {
-    background-color : blue;
+/* @media (max-width: 480px) {
+    h1{
+        margin: 40px;
     }
-}
- */
+} */
+
 
 
 
