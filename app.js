@@ -104,7 +104,6 @@ function hitButtonFunction (){
     hit(dealerHand, cardDeck)
     hit(playerHand, cardDeck)
     console.log(dealerHand + " im the dealers hand now")
-    // playerHand += cardDeck[Math.floor(Math.random() * cardDeck.length)];
     playerTextOnScreen.innerHTML = `Player ${playerHand}`
     console.log(playerHand)
     }
@@ -115,15 +114,15 @@ stayButton.addEventListener('click', stayButtonFunction )
 
 function stayButtonFunction(){
     winningGame()
-
+    handTotal = calculateHand(playerHand)
 }
 
 
 // LOSE CONDITION 
 function winningGame(){
-    if(playerTotalNumber === 21){
+    if(handTotal === 21){
         return console.log("BlackJack")
-    } else if (playerTotalNumber < 21) {
+    } else if (handTotal < 21) {
         console.log("Keep Going")
     } else console.log("BUST")
 }
