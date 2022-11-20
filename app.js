@@ -37,6 +37,11 @@ function shuffleDeck (){
     return cardDeck
 }
 
+// POP TWO CARDS OFF THE DECK INTO DEALER AND PLAYER 
+function hit (hand, deck){
+    let card = deck.pop()
+    hand.push(card)
+}
 
 //START BUTTON FUNCTION
 startButton.addEventListener('click', startGame)
@@ -63,15 +68,6 @@ function startGame(){
     // cardDeck[0].charAt(0)
     // console.log(cardDeck[0].charAt(0))
 }
-
-
-
-// POP TWO CARDS OFF THE DECK INTO DEALER AND PLAYER 
-function hit (hand, deck){
-    let card = deck.pop()
-    hand.push(card)
-}
-
 
 
 //CALCULATE HAND
