@@ -47,11 +47,10 @@ function startGame(){
     hit(playerHand, cardDeck)
     hit(dealerHand, cardDeck)
     hit(playerHand, cardDeck)
-    hit(dealerHand, cardDeck)
+    // hit(dealerHand, cardDeck)
     console.log(playerHand + " players hand")
     console.log(cardDeck)
     console.log(dealerHand + " dealers first card given dealers array")
-    // console.log(dealerTotalNumber + " this is hidden number and the dealer total added")
     playerTextOnScreen.innerHTML = `Player ${playerHand}`
     dealerTextOnScreen.innerHTML = `Dealer ${dealerHand}`
     let handTotal = calculateHand(playerHand)
@@ -59,10 +58,8 @@ function startGame(){
     // console.log(handTotal + " players hand total")
     console.log(handTotal = calculateHand(playerHand) + " players hand sum")
     console.log(handTotal = calculateHand(dealerHand) + " dealer hand sum")
-    // calculateHand(dealerHand)
-    // calculateHand(playerHand)
-     // console.log(playerTotalNumber + " this is the sum of the player hand") // we do not have to have this number appear on the dom, only have to  have it calculated and ran in a conditional.        
-    // console.log(cardDeck)
+    console.log(calculateHand(dealerHand))
+    console.log(calculateHand(playerHand) + " hello")       
     // cardDeck[0].charAt(0)
     // console.log(cardDeck[0].charAt(0))
 }
@@ -103,6 +100,8 @@ function hitButtonFunction (){
     calculateHand(playerHand)
     hit(dealerHand, cardDeck)
     hit(playerHand, cardDeck)
+    console.log(calculateHand(dealerHand) + " the dealers hand sum")
+    console.log(calculateHand(playerHand) + " the player hand sum")
     console.log(dealerHand + " im the dealers hand now")
     playerTextOnScreen.innerHTML = `Player ${playerHand}`
     console.log(playerHand)
@@ -113,16 +112,19 @@ function hitButtonFunction (){
 stayButton.addEventListener('click', stayButtonFunction )
 
 function stayButtonFunction(){
+    calculateHand(dealerHand)
+    calculateHand(playerHand)
+    console.log(calculateHand(dealerHand))
+    console.log(calculateHand(playerHand))
     winningGame()
-    handTotal = calculateHand(playerHand)
 }
 
 
 // LOSE CONDITION 
 function winningGame(){
-    if(handTotal === 21){
+    if(playerHand === 21){
         return console.log("BlackJack")
-    } else if (handTotal < 21) {
+    } else if (playerHand < 21) {
         console.log("Keep Going")
     } else console.log("BUST")
 }
