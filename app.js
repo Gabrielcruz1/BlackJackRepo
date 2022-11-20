@@ -48,22 +48,26 @@ function startGame(){
     hit(dealerHand, cardDeck)
     hit(playerHand, cardDeck)
     hit(dealerHand, cardDeck)
-    console.log(playerHand)
+    console.log(playerHand + " players hand")
     console.log(cardDeck)
     console.log(dealerHand + " dealers first card given dealers array")
     // console.log(dealerTotalNumber + " this is hidden number and the dealer total added")
     playerTextOnScreen.innerHTML = `Player ${playerHand}`
     dealerTextOnScreen.innerHTML = `Dealer ${dealerHand}`
-    console.log(playerHand + " players hand")
     let handTotal = calculateHand(playerHand)
-    console.log(handTotal)
-    calculateHand(dealerHand)
-    
-    // console.log(playerTotalNumber + " this is the sum of the player hand") // we do not have to have this number appear on the dom, only have to  have it calculated and ran in a conditional.        
+    handTotal = calculateHand(dealerHand)
+    // console.log(handTotal + " players hand total")
+    console.log(handTotal = calculateHand(playerHand) + " players hand sum")
+    console.log(handTotal = calculateHand(dealerHand) + " dealer hand sum")
+    // calculateHand(dealerHand)
+    // calculateHand(playerHand)
+     // console.log(playerTotalNumber + " this is the sum of the player hand") // we do not have to have this number appear on the dom, only have to  have it calculated and ran in a conditional.        
     // console.log(cardDeck)
     // cardDeck[0].charAt(0)
-    console.log(cardDeck[0].charAt(0))
+    // console.log(cardDeck[0].charAt(0))
 }
+
+
 
 // POP TWO CARDS OFF THE DECK INTO DEALER AND PLAYER 
 function hit (hand, deck){
@@ -71,16 +75,13 @@ function hit (hand, deck){
     hand.push(card)
 }
 
-// hit(playerHand, cardDeck);
-// console.log(playerHand)
 
-//CALCULATE PLAYER HAND
 
+//CALCULATE HAND
 function calculateHand(hand){
     let handTotal = 0;
-    
     for(let i = 0; i < hand.length; i++){
-        if(hand[i][0] === "J" || hand[i][0] ===     "K" || hand[i][0] === "Q"){
+        if(hand[i][0] === "J" || hand[i][0] === "K" || hand[i][0] === "Q"){
             handTotal +=10
         } else if (hand[i][0] === "A"){
             handTotal+=11 
@@ -98,12 +99,12 @@ function calculateHand(hand){
 hitButton.addEventListener('click', hitButtonFunction);
 
 function hitButtonFunction (){
-    calculatePlayerHand()
-    calculateDealerHand()
+    calculateHand(dealerHand)
+    calculateHand(playerHand)
     hit(dealerHand, cardDeck)
-
+    hit(playerHand, cardDeck)
     console.log(dealerHand + " im the dealers hand now")
-    playerHand += cardDeck[Math.floor(Math.random() * cardDeck.length)];
+    // playerHand += cardDeck[Math.floor(Math.random() * cardDeck.length)];
     playerTextOnScreen.innerHTML = `Player ${playerHand}`
     console.log(playerHand)
     }
