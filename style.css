@@ -13,6 +13,12 @@ h1 {
     text-align: center;
 }
 
+.symbols {
+    color: white;
+    font-size: 60px;
+    /* margin: 90px 0px 0px 0px; */
+}
+
 p {
     text-align: center;
 }
@@ -27,7 +33,7 @@ h2 {
     padding: 10px 40px 10px 40px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-style: italic;
-    border-color: yellow;
+    border-color: black;
     background-color: green;
     color: white;
 }
@@ -44,7 +50,7 @@ h2 {
 
 .startButton {
     padding: 5px 20px 5px 20px;
-    border-color: yellow;
+    border-color: black;
     background-color: green;
     color: white;
     font-style: italic;
