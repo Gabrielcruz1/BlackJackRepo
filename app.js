@@ -53,13 +53,13 @@ function startGame(){
     console.log(dealerHand + " dealers first card given dealers array")
     playerTextOnScreen.innerHTML = `Player ${playerHand}`
     dealerTextOnScreen.innerHTML = `Dealer ${dealerHand}`
-    let handTotal = calculateHand(playerHand)
-    handTotal = calculateHand(dealerHand)
+    // let handTotal = calculateHand(playerHand)
+    // handTotal = calculateHand(dealerHand)
     // console.log(handTotal + " players hand total")
     console.log(handTotal = calculateHand(playerHand) + " players hand sum")
     console.log(handTotal = calculateHand(dealerHand) + " dealer hand sum")
-    console.log(calculateHand(dealerHand))
-    console.log(calculateHand(playerHand) + " hello")       
+    calculateHand(dealerHand)
+    calculateHand(playerHand)      
     // cardDeck[0].charAt(0)
     // console.log(cardDeck[0].charAt(0))
 }
