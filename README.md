@@ -4,7 +4,7 @@ BLACKJACK -  Blackjack, or twenty-one, Card game whose object is to be dealt car
 
 Technologies used: HTML, CSS, JAVASCRIPT
 
-Getting started: https://github.com/Gabrielcruz1/BlackJackRepo.git
+Getting started: https://gabrielcruz1.github.io/BlackJackRepo/
 
 Wire frame: Pen and paper sketch.
 
