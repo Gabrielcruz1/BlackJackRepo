@@ -41,7 +41,7 @@ function hit (hand, deck){
     hand.push(card)
 }
 
-//START BUTTON FUNCTION
+//START BUTTON WITH FUNCTION BELOW
 startButton.addEventListener('click', startGame)
 
 function startGame(){
@@ -50,19 +50,11 @@ function startGame(){
     hit(playerHand, cardDeck)
     hit(dealerHand, cardDeck)
     hit(playerHand, cardDeck)
-    console.log(playerHand + " players hand")
-    console.log(cardDeck)
-    console.log(dealerHand + " dealers first card given dealers array")
     playerTextOnScreen.innerHTML = `Player ${playerHand}`
     dealerTextOnScreen.innerHTML = `Dealer ${dealerHand}`
-    console.log(handTotal = calculateHand(playerHand) + " players hand sum")
-    console.log(handTotal = calculateHand(dealerHand) + " dealer hand sum")
     calculateHand(dealerHand)
     calculateHand(playerHand)      
-    // cardDeck[0].charAt(0)
-    // console.log(cardDeck[0].charAt(0))
 }
-
 
 //CALCULATE HAND
 function calculateHand(hand){
@@ -81,8 +73,7 @@ function calculateHand(hand){
     return handTotal
 }
 
-
-//HIT BUTTON
+//HIT BUTTON WITH FUNCTION BELOW
 hitButton.addEventListener('click', hitButtonFunction);
 
 function hitButtonFunction (){
@@ -90,37 +81,23 @@ function hitButtonFunction (){
     calculateHand(playerHand)
     hit(dealerHand, cardDeck)
     hit(playerHand, cardDeck)
-    console.log(calculateHand(dealerHand) + " the dealers hand sum")
-    console.log(calculateHand(playerHand) + " the player hand sum")
-    console.log(dealerHand + " im the dealers hand now")
     playerTextOnScreen.innerHTML = `Player ${playerHand}`
     dealerTextOnScreen.innerHTML = `Dealer ${dealerHand}`
-    console.log(playerHand)
     }
 
     
-// //STAY BUTTON 
+//STAY BUTTON WITH FUNCTION BELOW
 stayButton.addEventListener('click', stayButtonFunction )
 
 function stayButtonFunction(){
+    winningGame()
     calculateHand(dealerHand)
     calculateHand(playerHand)
-    console.log(calculateHand(dealerHand))
-    console.log(calculateHand(playerHand))
-    winningGame()
-
+    hit(dealerHand, cardDeck)
+    dealerTextOnScreen.innerHTML = `Dealer ${dealerHand}`
 }
 
-
-// // LOSE CONDITION 
-// function winningGame(){
-//     if(calculateHand(playerHand) === 21){
-//         playerTextOnScreen.innerHTML = `Player ${"BlackJack"}`
-//     } else if (calculateHand(playerHand) < 21 && calculateHand(playerHand) > calculateHand(dealerHand)) {
-//         playerTextOnScreen.innerHTML = `Player ${"winner"}`
-//     } playerTextOnScreen.innerHTML = `Player ${"bust"}`
-// }
-
+// WIN GAME FUNCTION (COMPARES HANDS)
 function winningGame(){
     if(calculateHand(playerHand) === calculateHand(dealerHand)){
         playerTextOnScreen.innerHTML = `Player ${"draw"}`
@@ -130,20 +107,13 @@ function winningGame(){
         playerTextOnScreen.innerHTML = `Player ${"Bust, Dealer wins"}`
     } else if (calculateHand(playerHand) === 21 && calculateHand(dealerHand) != 21){
         playerTextOnScreen.innerHTML = `Player ${"BlackJack"}`
+    } else if(calculateHand(playerHand) > 21 && calculateHand(dealerHand) > 21) {
+        playerTextOnScreen.innerHTML = `Player ${"BUST"}`
     }
 }
 
 
 
-    function losingGame(){
-        if(dealerTotalNumber === 21){
-            return console.log("BlackJack")
-        } else if (dealerTotalNumber < 21) {
-            console.log("Keep Going")
-        } else console.log("BUST")
-    }
-    
-    
     
 
 
