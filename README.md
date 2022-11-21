@@ -10,6 +10,8 @@ Wire frame: Pen and paper sketch.
 
 Next steps: My future enhancements include adding card images to the game so that it is more visually appealing. I plan on enhancing functionality of all buttons on when they can and can not be clicked upon. I plan on enhancing the game as a whole as I will keep this a live project for future employers. 
 
+![BlackJack](https://imgur.com/DGWQnp1.jpg)
+
 
 
 
