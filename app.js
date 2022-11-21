@@ -6,7 +6,6 @@ let cardDeck = [];
 // HANDS THAT DEALER AND PLAYER HAVE
 let dealerHand = [];
 let playerHand = [];
-// let hidden = 0; // hidden is second dealer card should be added to dealer hand 
 
 //HTML IN A VARIABLE 
 let playerTextOnScreen = document.querySelector('#playerText')
@@ -33,7 +32,6 @@ function shuffleDeck (){
         currentIndex--;
         [cardDeck[currentIndex], cardDeck[randomIndex]] = [cardDeck[randomIndex], cardDeck[currentIndex]];
     }
-    // console.log(cardDeck)
     return cardDeck
 }
 
@@ -57,8 +55,6 @@ function startGame(){
     console.log(dealerHand + " dealers first card given dealers array")
     playerTextOnScreen.innerHTML = `Player ${playerHand}`
     dealerTextOnScreen.innerHTML = `Dealer ${dealerHand}`
-    // let handTotal = calculateHand(playerHand)
-    // handTotal = calculateHand(dealerHand)
     console.log(handTotal = calculateHand(playerHand) + " players hand sum")
     console.log(handTotal = calculateHand(dealerHand) + " dealer hand sum")
     calculateHand(dealerHand)
@@ -111,37 +107,43 @@ function stayButtonFunction(){
     console.log(calculateHand(dealerHand))
     console.log(calculateHand(playerHand))
     winningGame()
+
 }
 
 
 // // LOSE CONDITION 
 // function winningGame(){
-//     if(playerHand === 21){
-//         return console.log("BlackJack")
-//     } else if (playerHand < 21) {
-//        return console.log("Keep Going")
-//     } else console.log("BUST")
+//     if(calculateHand(playerHand) === 21){
+//         playerTextOnScreen.innerHTML = `Player ${"BlackJack"}`
+//     } else if (calculateHand(playerHand) < 21 && calculateHand(playerHand) > calculateHand(dealerHand)) {
+//         playerTextOnScreen.innerHTML = `Player ${"winner"}`
+//     } playerTextOnScreen.innerHTML = `Player ${"bust"}`
 // }
 
-// LOSE CONDITION 
 function winningGame(){
-    if(playerHand === 21){
-        return playerTextOnScreen.innerHTML = `Player ${"BLACKJACK"}`
-    } else if (playerHand < 21) {
-        playerTextOnScreen.innerHTML = `Player ${"Keep going"}`
-    } else playerTextOnScreen.innerHTML = `Player ${"BUST"}`
-}
-
-function losingGame(){
-    if(dealerTotalNumber === 21){
-        return console.log("BlackJack")
-    } else if (dealerTotalNumber < 21) {
-        console.log("Keep Going")
-    } else console.log("BUST")
+    if(calculateHand(playerHand) === calculateHand(dealerHand)){
+        playerTextOnScreen.innerHTML = `Player ${"draw"}`
+    } else if (calculateHand(playerHand) < 21 && calculateHand(playerHand) > calculateHand(dealerHand)){
+        playerTextOnScreen.innerHTML = `Player ${"you win"}`   
+    } else if (calculateHand(playerHand) > 21 && calculateHand(dealerHand) < 21){
+        playerTextOnScreen.innerHTML = `Player ${"Bust, Dealer wins"}`
+    } else if (calculateHand(playerHand) === 21 && calculateHand(dealerHand) != 21){
+        playerTextOnScreen.innerHTML = `Player ${"BlackJack"}`
+    }
 }
 
 
 
+    function losingGame(){
+        if(dealerTotalNumber === 21){
+            return console.log("BlackJack")
+        } else if (dealerTotalNumber < 21) {
+            console.log("Keep Going")
+        } else console.log("BUST")
+    }
+    
+    
+    
 
 
 
