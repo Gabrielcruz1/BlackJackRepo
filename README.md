@@ -9,7 +9,7 @@ HTML, CSS, JAVASCRIPT
 
 ![BlackJack](https://imgur.com/8I3eDmC.jpg)
 
-![BlackJack](https://imgur.com/RqfVsp4)
+![BlackJack](https://imgur.com/RqfVsp4.jpg)
 
 # Getting started
  https://gabrielcruz1.github.io/BlackJackRepo/
