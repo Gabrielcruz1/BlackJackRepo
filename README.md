@@ -4,6 +4,7 @@ BLACKJACK -  Blackjack, or twenty-one, Card game whose object is to be dealt car
 # Technologies used
 HTML, CSS, JAVASCRIPT
 
+# Screen shots
 ![BlackJack](https://imgur.com/DGWQnp1.jpg)
 
 ![BlackJack](https://imgur.com/8I3eDmC.jpg)
