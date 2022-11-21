@@ -94,6 +94,7 @@ function hitButtonFunction (){
     console.log(calculateHand(playerHand) + " the player hand sum")
     console.log(dealerHand + " im the dealers hand now")
     playerTextOnScreen.innerHTML = `Player ${playerHand}`
+    dealerTextOnScreen.innerHTML = `Dealer ${dealerHand}`
     console.log(playerHand)
     }
 
