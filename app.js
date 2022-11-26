@@ -53,7 +53,11 @@ function startGame(){
     playerTextOnScreen.innerHTML = `Player ${playerHand}`
     dealerTextOnScreen.innerHTML = `Dealer ${dealerHand}`
     calculateHand(dealerHand)
-    calculateHand(playerHand)      
+    calculateHand(playerHand)
+    console.log(cardDeck)
+    console.log(calculateHand(dealerHand) + " The Dealers calculated Hand")
+    console.log(calculateHand(playerHand) + " The Players calculated Hand")
+
 }
 
 //CALCULATE HAND
@@ -83,6 +87,9 @@ function hitButtonFunction (){
     hit(playerHand, cardDeck)
     playerTextOnScreen.innerHTML = `Player ${playerHand}`
     dealerTextOnScreen.innerHTML = `Dealer ${dealerHand}`
+    console.log(calculateHand(dealerHand) + " The Dealers Hand Now")
+    console.log(calculateHand(playerHand)+ " The Players Hand Now")
+    // winningGame() - This will cause game to always end when hit button is pressed 
     }
 
     
