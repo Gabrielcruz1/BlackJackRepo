@@ -8,7 +8,7 @@ html {
 
 h1 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: yellow;
+    color: rgb(255, 251, 0);
     margin: 90px 0px 0px 0px;
     text-align: center;
 }
@@ -16,7 +16,6 @@ h1 {
 .symbols {
     color: black;
     font-size: 60px;
-    /* margin: 90px 0px 0px 0px; */
 }
 
 p {
@@ -57,14 +56,14 @@ h2 {
 }
 
 .playerDiv {
-    display: grid;
-    grid-template-rows: 325px ;
+    text-align: center;
+
 }
 
 .inputClass {
-    margin: 0 auto;
-    padding: 5px;
-    /* border: black; */
+    align-items: center;
+    padding: 4px;
+    border: black;
     font-style: italic;
     text-align: center;
 }
