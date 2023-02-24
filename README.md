@@ -19,7 +19,8 @@ BLACKJACK -  Blackjack, or twenty-one, Card game whose object is to be dealt car
 # Getting started
  https://gabrielcruz1.github.io/BlackJackRepo/
 
-Wire frame: Pen and paper sketch.
+# Wire frame: 
+Pen and paper sketch.
 
 # Future Features
 <ul> 
