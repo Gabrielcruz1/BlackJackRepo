@@ -48,8 +48,9 @@ function startGame(){
     newDeck();
     shuffleDeck();
     hit(playerHand, cardDeck)
-    hit(dealerHand, cardDeck)
     hit(playerHand, cardDeck)
+    hit(dealerHand, cardDeck)
+    hit(dealerHand, cardDeck)
     playerTextOnScreen.innerHTML = `Player ${playerHand}`
     dealerTextOnScreen.innerHTML = `Dealer ${dealerHand}`
     calculateHand(dealerHand)
@@ -83,13 +84,12 @@ hitButton.addEventListener('click', hitButtonFunction);
 function hitButtonFunction (){
     calculateHand(dealerHand)
     calculateHand(playerHand)
-    // hit(dealerHand, cardDeck)// Reveal all of the dealers cards when end of game/ win condition or lose condition is met. 
+    hit(dealerHand, cardDeck)
     hit(playerHand, cardDeck)
     playerTextOnScreen.innerHTML = `Player ${playerHand}`
     dealerTextOnScreen.innerHTML = `Dealer ${dealerHand}`
     console.log(calculateHand(dealerHand) + " The Dealers Hand Now")
     console.log(calculateHand(playerHand)+ " The Players Hand Now")
-    // winningGame() - This will cause game to always end when hit button is pressed 
     }
 
     
@@ -100,27 +100,40 @@ function stayButtonFunction(){
     winningGame()
     calculateHand(dealerHand)
     calculateHand(playerHand)
-    hit(dealerHand, cardDeck)
     dealerTextOnScreen.innerHTML = `Dealer ${dealerHand}`
 }
 
 // WIN GAME FUNCTION (COMPARES HANDS)
-// function winningGame(){
-//     if(calculateHand(playerHand) === calculateHand(dealerHand)){
-//         playerTextOnScreen.innerHTML = `Player ${"draw"}`
-//     } else if (calculateHand(playerHand) < 21 && calculateHand(playerHand) > calculateHand(dealerHand)){
-//         playerTextOnScreen.innerHTML = `Player ${"you win"}`   
-//     } else if (calculateHand(playerHand) > 21 && calculateHand(dealerHand) < 21){
-//         playerTextOnScreen.innerHTML = `Player ${"Bust, Dealer wins"}`
-//     } else if (calculateHand(playerHand) === 21 && calculateHand(dealerHand) != 21){
-//         playerTextOnScreen.innerHTML = `Player ${"BlackJack"}`
-//     } else if(calculateHand(playerHand) > 21 && calculateHand(dealerHand) > 21) {
-//         playerTextOnScreen.innerHTML = `Player ${"BUST"}`
-//     }
-// }
+function winningGame(){
+    if(calculateHand(playerHand) === calculateHand(dealerHand)){
+        playerTextOnScreen.innerHTML = `Player ${"draw"}`
+    } else if (calculateHand(playerHand) < 21 && calculateHand(playerHand) > calculateHand(dealerHand)){
+        playerTextOnScreen.innerHTML = `Player ${"you win"}`   
+    } else if (calculateHand(playerHand) > 21 && calculateHand(dealerHand) < 21){
+        playerTextOnScreen.innerHTML = `Player ${"Bust, Dealer wins"}`
+    } else if (calculateHand(playerHand) === 21 && calculateHand(dealerHand) != 21){
+        playerTextOnScreen.innerHTML = `Player ${"BlackJack"}`
+    } else if(calculateHand(playerHand) > 21 && calculateHand(dealerHand) > 21) {
+        playerTextOnScreen.innerHTML = `Player ${"BUST"}`
+    }
+}
 
 
+function gameRules(array){
+    array = dealerHand
+    if (stayButtonFunction()){
+        for (let val of dealerHand){
+            if(calculateHand(playerHand) <= 16){
+                hit(dealerHand, cardDeck)
+            }
+        }
+    }
+    winningGame()
+}
 
+gameRules(dealerHand)
+// if player stays at first hit because he hit 19, well dealer still has option to hit.
+//if upon start game 21 is reached. game ends for player and cpu. 
 
 
 
