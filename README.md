@@ -21,8 +21,11 @@ BLACKJACK -  Blackjack, or twenty-one, Card game whose object is to be dealt car
 
 Wire frame: Pen and paper sketch.
 
-# Next steps
-My future enhancements include adding card images to the game so that it is more visually appealing. I plan on enhancing functionality of all buttons on when they can and can not be clicked upon. Incorporating an option to make bets. 
+# Future Features
+<ul> 
+<li> Adding card images/ borders to resemble cards.</li>
+<li> Incorporate user betting.</li>
+</ul> 
 
 
 
