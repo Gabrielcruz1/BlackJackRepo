@@ -120,11 +120,13 @@ function winningGame(){
 
 
 function gameRules(array){
-    array = dealerHand
+    dealerHand = array
     if (stayButtonFunction()){
         for (let val of dealerHand){
             if(calculateHand(playerHand) <= 16){
                 hit(dealerHand, cardDeck)
+            } else {
+                winningGame()
             }
         }
     }
