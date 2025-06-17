@@ -1,4 +1,4 @@
-//ARRAY OF SUITS AND VALUES
+// ARRAY OF SUITS AND VALUES
 let cardValue = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'K', 'Q'];
 let cardSuit = ['♠', '♥', '♣', '♦'];
 let cardDeck = [];
@@ -7,16 +7,17 @@ let cardDeck = [];
 let dealerHand = [];
 let playerHand = [];
 
-//HTML IN A VARIABLE 
+// HTML IN A VARIABLE 
 let playerTextOnScreen = document.querySelector('#playerText')
 let dealerTextOnScreen = document.querySelector('#dealerText');
 
 // BUTTONS STORED IN A VARIABLE 
-let startButton = document.querySelector('#startButton')
-let hitButton = document.querySelector('#hitButton')
-let stayButton = document.querySelector('#stayButton')
+const startButton = document.querySelector('#startButton')
+const hitButton = document.querySelector('#hitButton')
+const stayButton = document.querySelector('#stayButton')
+const restartButton = document.querySelector('#restart')
 
-//LOOPING THROUGH SUITS & VALUES TO MAKE DECK 
+// LOOPING THROUGH SUITS & VALUES TO MAKE DECK 
 function newDeck(){
     for(let i=0; i < cardValue.length; i++){
         for (let k = 0; k < cardSuit.length; k++){
@@ -24,6 +25,7 @@ function newDeck(){
         }
     }
 }
+
 // SHUFFLES MY DECK 
 function shuffleDeck (){
     let currentIndex = cardDeck.length //randomIndex;
@@ -41,7 +43,7 @@ function hit (hand, deck){
     hand.push(card)
 }
 
-//START BUTTON WITH FUNCTION BELOW
+// START BUTTON WITH FUNCTION BELOW
 startButton.addEventListener('click', startGame)
 
 function startGame(){
@@ -61,7 +63,7 @@ function startGame(){
 
 }
 
-//CALCULATE HAND
+// CALCULATE HAND
 function calculateHand(hand){
     let handTotal = 0;
     for(let i = 0; i < hand.length; i++){
@@ -78,7 +80,7 @@ function calculateHand(hand){
     return handTotal
 }
 
-//HIT BUTTON WITH FUNCTION BELOW
+// HIT BUTTON WITH FUNCTION BELOW
 hitButton.addEventListener('click', hitButtonFunction);
 
 function hitButtonFunction (){
@@ -93,7 +95,7 @@ function hitButtonFunction (){
     }
 
     
-//STAY BUTTON WITH FUNCTION BELOW
+// STAY BUTTON WITH FUNCTION BELOW
 stayButton.addEventListener('click', stayButtonFunction )
 
 function stayButtonFunction(){
@@ -138,11 +140,19 @@ gameRules(dealerHand)
 //if upon start game 21 is reached. game ends for player and cpu. 
 
 
+// RESTART GAME 
+restartButton.addEventListener('click', restartGame);
+
+function restartGame() {
+    // once start is pressed 
+    // have the ability to restart 
+    // if start is not pressed, restart does nothing. 
+
+    location.reload();
+}
 
 
 
 
 
-
-
-
+// Todo - remove having start clicked multiple times in a game. only once per game
