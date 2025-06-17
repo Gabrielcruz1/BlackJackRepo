@@ -57,9 +57,9 @@ function startGame(){
     dealerTextOnScreen.innerHTML = `Dealer ${dealerHand}`
     calculateHand(dealerHand)
     calculateHand(playerHand)
-    console.log(cardDeck)
-    console.log(calculateHand(dealerHand) + " The Dealers calculated Hand")
-    console.log(calculateHand(playerHand) + " The Players calculated Hand")
+    // console.log(cardDeck)
+    // console.log(calculateHand(dealerHand) + " The Dealers calculated Hand")
+    // console.log(calculateHand(playerHand) + " The Players calculated Hand")
 
 }
 
@@ -144,15 +144,12 @@ gameRules(dealerHand)
 restartButton.addEventListener('click', restartGame);
 
 function restartGame() {
-    // once start is pressed 
-    // have the ability to restart 
-    // if start is not pressed, restart does nothing. 
-
-    location.reload();
+    // location.reload();
+    console.log(playerHand)
+    playerHand = [];
+    dealerHand = [];
+    playerTextOnScreen.innerHTML = 'Player Draw';
+    dealerTextOnScreen.innerHTML = "Dealer";
 }
-
-
-
-
 
 // Todo - remove having start clicked multiple times in a game. only once per game
